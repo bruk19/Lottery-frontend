@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Lottery smart contract",
-  description: "this is a lottery smart contract wich is build with hardhat and nextJs",
+  title: "Lottery smaart contract",
+  description: "this is a lottery smart contract wich is build with",
 };
 
 export default function RootLayout({ children }) {
