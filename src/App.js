@@ -1,9 +1,10 @@
 import { MoralisProvider } from "react-moralis";
-import Header from "./Header";
+import HeaderKit from "./components/HeaderKit";
+// import Header from "./Header";
 function App() {
   return (
     <MoralisProvider initializeOnMount={false} >
-      <Header />
+      <HeaderKit />
     </MoralisProvider>
   );
 }

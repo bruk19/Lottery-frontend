@@ -2,16 +2,16 @@ import { React, useEffect } from 'react'
 import { useMoralis } from "react-moralis"
 
 function Header() {
-  const { enableWeb3, account, isWeb3Enabled, Moralis, deactivateWeb3 } = useMoralis()
+  const { enableWeb3, account, isWeb3Enabled, Moralis, deactivateWeb3, isWeb3EnableLoading } = useMoralis()
 
   useEffect(() => {
-    if (isWeb3Enabled) return 
+    if (isWeb3Enabled) return
     if (typeof window !== "undefined") {
       if (window.localStorage.getItem("connected")) {
-          enableWeb3()
+        enableWeb3()
       }
     }
-  
+
   }, [isWeb3Enabled])
 
   useEffect(() => {
@@ -34,7 +34,9 @@ function Header() {
             if (typeof window !== "undefined") {
               window.localStorage.setItem("connected", "inject")
             }
-          }}>Connect</button>)}
+          }}
+          disabled={isWeb3EnableLoading}
+        >Connect</button>)}
     </div>
   )
 }
