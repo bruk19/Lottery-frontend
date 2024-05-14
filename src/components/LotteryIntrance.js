@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWeb3Contract } from "react-moralis";
 
-export default function LotteryIntrance() {
+export default function LotteryEntrance() {
   const {
     runContractFunction: enterRaffle
   } = useWeb3Contract({
