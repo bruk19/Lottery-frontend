@@ -1,1 +1,1 @@
-export const contractAddresses = { "11155111": ["0x04aed1fe38b13dfc89e591aa85d9dce2c32cb5ee7e44112e919a2c505981353c"] }
+export const contractAddresses = { "11155111": ["0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"] }

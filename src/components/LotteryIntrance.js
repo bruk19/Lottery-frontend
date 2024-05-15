@@ -9,9 +9,8 @@ export default function LotteryEntrance() {
 
   const { chainId: chainIdHex, isWeb3Enabled } = useMoralis()
   const chainId = parseInt(chainIdHex)
-  console.log(chainId)
-  const lotteryAddress = contractAddresses
-  console.log(lotteryAddress)
+  const lotteryAddress = chainId in contractAddresses ? contractAddresses[chainId][0] : null
+
   const [entranceFee, setEntranceFee] = useState("0")
 
   const { runContractFunction: getEntranceFee } = useWeb3Contract({
@@ -21,13 +20,19 @@ export default function LotteryEntrance() {
     params: {},
   })
 
+
   useEffect(() => {
     if (isWeb3Enabled) {
       async function updateUI() {
-        const entranceFeeFromCall = (await getEntranceFee())
-        // setEntranceFee(ethers.formatUints(entranceFeeFromCall), "ethers")
+        const entranceFeeFromCall = await getEntranceFee()
+        if (entranceFeeFromCall) {
+          const entranceFee = entranceFeeFromCall.toString()
+          console.log(entranceFee)
+          setEntranceFee(entranceFee)
+        } else {
+          console.log("Entrance fee is undefined")
+        }
       }
-
       updateUI()
     }
   }, [isWeb3Enabled])
