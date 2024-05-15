@@ -1,11 +1,11 @@
 import { MoralisProvider } from "react-moralis";
-import HeaderKit from "./components/HeaderKit";
+// import HeaderKit from "./components/HeaderKit";
 import LotteryIntrance from "./components/LotteryIntrance";
-// import Header from "./Header";
+import Header from "./Header";
 function App() {
   return (
     <MoralisProvider initializeOnMount={false} >
-      <HeaderKit />
+      <Header />
       <LotteryIntrance />
     </MoralisProvider>
   );
